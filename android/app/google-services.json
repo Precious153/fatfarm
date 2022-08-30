@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448611913394",
+    "project_id": "fatfarmapp",
+    "storage_bucket": "fatfarmapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448611913394:android:36069a7ca4f2f7263e83ab",
+        "android_client_info": {
+          "package_name": "com.example.fatfarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448611913394-b18r0ssvkndnav24sqjic9eq0tcbndap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYfnArHe3sUqyDrLJHYRKHxCPuzc_rIdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448611913394-b18r0ssvkndnav24sqjic9eq0tcbndap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
