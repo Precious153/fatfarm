@@ -32,8 +32,8 @@ class _SignUpState extends State<SignUp> {
     RegExp regex = RegExp(pattern);
     if (!regex.hasMatch(formPassword))
       return '''
-      Password must be at least 8 characters,
-      include an uppercase letter, number and symbol.
+      Enter minimum of 8 characters,
+      including uppercase letter, number and symbol.
       ''';
 
     return null;
@@ -41,11 +41,11 @@ class _SignUpState extends State<SignUp> {
 
   String? validateEmail(String? formEmail) {
     if (formEmail == null || formEmail.isEmpty)
-      return 'E-mail address is required.';
+      return 'Enter correct e-mail address.';
 
     String pattern = r'\w+@\w+\.\w+';
     RegExp regex = RegExp(pattern);
-    if (!regex.hasMatch(formEmail)) return 'Invalid E-mail Address format.';
+    if (!regex.hasMatch(formEmail)) return 'E-mail Address format is invalid.';
 
     return null;
   }
@@ -80,7 +80,7 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 40),
               const Center(
-                child: Text('Enter your details correctly below',
+                child: Text('Enter your details correctly below.',
                     style: const TextStyle(
                         // fontFamily: 'times new roman',
                         fontSize: 20,
@@ -106,7 +106,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                             const SizedBox(height: 2),
                             SizedBox(
-                              height: 60,
+                              height: 80,
                               width: 160,
                               child: Column(
                                 children: [
@@ -115,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                                     child: TextFormField(
                                       validator: (value) {
                                         if (value!.isEmpty)
-                                          return 'Firstname field entry is needed';
+                                          return 'Please enter first name';
                                       },
                                       decoration: InputDecoration(
                                         border: OutlineInputBorder(
@@ -150,7 +150,7 @@ class _SignUpState extends State<SignUp> {
                               ),
                               const SizedBox(height: 2),
                               SizedBox(
-                                height: 60,
+                                height: 80,
                                 width: 140,
                                 child: Column(
                                   children: [
@@ -159,7 +159,7 @@ class _SignUpState extends State<SignUp> {
                                       child: TextFormField(
                                         validator: (value) {
                                           if (value!.isEmpty)
-                                            return 'Lastname field entry is needed';
+                                            return 'Please enter last name';
                                         },
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -196,16 +196,17 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const SizedBox(height: 2),
                         SizedBox(
-                          height: 60,
+                          height: 80,
                           width: 315,
                           child: Column(
                             children: [
                               Container(
                                 // color: Color(0xffA0A0A0),
                                 child: TextFormField(
+                                  keyboardType: TextInputType.number,
                                   validator: (value) {
                                     if (value!.isEmpty)
-                                      return 'PhoneNumber field entry is needed';
+                                      return 'Please enter valid phone number';
                                   },
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
@@ -230,7 +231,7 @@ class _SignUpState extends State<SignUp> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Email Address',
+                          'E-mail Address',
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
@@ -238,20 +239,21 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const SizedBox(height: 2),
                         SizedBox(
-                          height: 60,
+                          height: 80,
                           width: 315,
                           child: Column(
                             children: [
                               Container(
                                 // color: Color(0xffA0A0A0),
                                 child: TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
                                   controller: _email,
                                   validator: validateEmail,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    hintText: 'Enter your Email Address',
+                                    hintText: 'Enter your E-mail Address',
                                     hintStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
@@ -279,7 +281,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         const SizedBox(height: 2),
                         SizedBox(
-                          height: 60,
+                          height: 80,
                           width: 315,
                           child: Container(
                             child: TextFormField(

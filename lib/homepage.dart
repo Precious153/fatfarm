@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fatfarm/upload.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -71,7 +72,38 @@ class _HomepageState extends State<Homepage> {
                   child : ListView.builder(
                       itemCount: datavalue.length,
                       itemBuilder: (context, index) {
-                        return Padding(
+                        return Slidable(
+                            startActionPane: ActionPane(
+                            motion: ScrollMotion(),
+                        children: [
+                        SlidableAction(
+                        onPressed: (_) async {
+                        var formDoc = await FirebaseFirestore
+                            .instance
+                            .collection("users-data")
+                            .where("name" == "${datavalue[index]['name']}")
+                            .where("price" == "${datavalue[index]['price']}")
+                            .get();
+
+                        // await FirebaseFirestore.instance.collection("users-data").doc().delete();
+                        print(formDoc);
+                        },
+                        icon: Icons.edit,
+                        backgroundColor: Colors.blueAccent,
+                        ),
+                        ],
+                        ),
+                        endActionPane: ActionPane(
+                        motion: ScrollMotion(),
+                        children: [
+                        SlidableAction(
+                        onPressed: (_) {},
+                        icon: Icons.delete_outline,
+                        backgroundColor: Colors.red,
+                        )
+                        ],
+                        ),
+                         child: Padding(
                           padding: const EdgeInsets.all(10),
                           child: Container(
                               height: 150,
@@ -82,7 +114,7 @@ class _HomepageState extends State<Homepage> {
                                     width: 150,
                                       height: 150,
                                       child:
-                                      Image.file(File('${datavalue[0]['imagepath'].toString()}'))
+                                      Image.file(File('${datavalue[index]['imagepath'].toString()}'))
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(10),
@@ -100,17 +132,17 @@ class _HomepageState extends State<Homepage> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-                                            PopupMenuButton(
-                                              itemBuilder: (BuildContext context) =>
-                                              <PopupMenuEntry>[
-                                                const PopupMenuItem(
-                                                  child: Text('Edit'),
-                                                ),
-                                                const PopupMenuItem(
-                                                  child: Text('Delete'),
-                                                ),
-                                              ],
-                                            )
+                                            // PopupMenuButton(
+                                            //   itemBuilder: (BuildContext context) =>
+                                            //   <PopupMenuEntry>[
+                                            //     const PopupMenuItem(
+                                            //       child: Text('Edit'),
+                                            //     ),
+                                            //     const PopupMenuItem(
+                                            //       child: Text('Delete'),
+                                            //     ),
+                                            //   ],
+                                            // )
                                           ],
                                         ),
                                         Text(
@@ -145,6 +177,7 @@ class _HomepageState extends State<Homepage> {
                                   ),
                                 ],
                               )),
+                        ),
                         );
                       }),
 

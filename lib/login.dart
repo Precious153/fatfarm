@@ -20,11 +20,11 @@ class _LoginState extends State<Login> {
   TextEditingController _password = TextEditingController();
   String? validateEmail(String? formEmail) {
     if (formEmail == null || formEmail.isEmpty)
-      return 'E-mail address is required.';
+      return 'Enter correct E-mail address.';
 
     String pattern = r'\w+@\w+\.\w+';
     RegExp regex = RegExp(pattern);
-    if (!regex.hasMatch(formEmail)) return 'Invalid E-mail Address format.';
+    if (!regex.hasMatch(formEmail)) return 'E-mail Address format is invalid.';
 
     return null;
   }
@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
               ),
               const SizedBox(height: 40),
               const Center(
-                child: Text('Welcome Back !',
+                child: Text('Welcome !',
                     style: TextStyle(
                         // fontFamily: 'times new roman',
                         fontSize: 40,
@@ -91,6 +91,7 @@ class _LoginState extends State<Login> {
                              Container(
                                // color: Color(0xffA0A0A0),
                                child: TextFormField(
+                                 keyboardType: TextInputType.emailAddress,
                                  controller: _email,
                                  validator: validateEmail,
                                  decoration: InputDecoration(
@@ -129,9 +130,10 @@ class _LoginState extends State<Login> {
                          width: 315,
                          child: Container(
                            child: TextFormField(
+                             keyboardType: TextInputType.emailAddress,
                              controller: _password,
                              validator: (value) {
-                               if (value!.isEmpty) return 'Password field entry is needed';
+                               if (value!.isEmpty) return 'Enter correct password.';
                              },
                              obscureText: _visible,
                              decoration: InputDecoration(
@@ -170,7 +172,7 @@ class _LoginState extends State<Login> {
                          child: const Text(
                            'Forgot password?',
                            style: const TextStyle(
-                             fontSize: 16,
+                             fontSize: 14,
                              fontWeight: FontWeight.w400,
                              color: const Color(0xff0056E0),
                            ),
@@ -178,7 +180,7 @@ class _LoginState extends State<Login> {
                        ),
                      ],
                    ),
-                   const SizedBox(height: 50),
+                   const SizedBox(height: 30),
                    SizedBox(
                      height: 60,
                      width: 315,
@@ -203,7 +205,7 @@ class _LoginState extends State<Login> {
                                  email: _email.text.trim(),
                                  password: _password.text,
                                ).then((value) =>
-                                   Navigator.pushReplacement(context,
+                                   Navigator.push(context,
                                        MaterialPageRoute(
                                            builder: (context) => Homepage())));
                              }on FirebaseAuthException catch (error) {

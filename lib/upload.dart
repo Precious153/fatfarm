@@ -103,6 +103,7 @@ class _UploadState extends State<Upload> {
                     height: 50,
                     width: 315,
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
                       controller: _price,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -122,7 +123,7 @@ class _UploadState extends State<Upload> {
                     height: 80,
                     width: 315,
                     child: TextFormField(
-                      keyboardType: TextInputType.multiline,maxLines: null,
+                      keyboardType: TextInputType.multiline,maxLines: 8,
                       controller: _desc,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -218,11 +219,6 @@ class _UploadState extends State<Upload> {
                         isLoading2 = false;
                         setState(() {});
                         sendUserName();
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Homepage()));
                       });
                     },
                     child: isLoading2 == false
