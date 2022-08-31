@@ -1,6 +1,6 @@
 # Fat Farm
 
-Farm Farm project is an agrictech mobile app I built for an Agritech conglomerate based in Bauchi, Nigeria.
+Fat Farm project is an agrictech mobile app I built for an Agritech conglomerate based in Bauchi, Nigeria.
 
 ## About the Project
 Flutter was used to develop the app, and Dart was the programming language used.
