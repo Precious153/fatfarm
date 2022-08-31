@@ -1,16 +1,9 @@
-# fatfarm
+# Fat Farm
 
-A new Flutter project.
+Farm Farm project is an agrictech mobile app I built for an Agritech conglomerate based in Bauchi, Nigeria.
 
-## Getting Started
+## About the Project
+Flutter was used to develop the app, and Dart was the programming language used.
+Relevant Flutter widgets and properties were used where necessary (contained in lib files).
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+In the App, users can sign up if they don't have an account before, they can login if they already have an account,  they can view the list of produce in the market place, they are able to upload new produce if they wish to, and they can also delete produce from the market place.
